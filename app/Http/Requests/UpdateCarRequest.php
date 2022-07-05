@@ -24,13 +24,13 @@ class UpdateCarRequest extends FormRequest
     public function rules()
     {
         return [
-            'brand' => 'required|string|max:255',
-            'model' => 'required|string|max:255',
-            'year' => 'sometimes|integer|between:1950,' . now()->format('Y'),
-            'max_speed' => 'sometimes|integer|between:0,350',
-            'is_automatic' => 'sometimes|boolean|',
-            'engine' => 'sometimes|integer|between:750,6000',
-            'number_of_doors' => 'sometimes|integer|between:1,5',
+            'brand' => 'required|string|min:2|max:255',
+            'model' => 'required|string|min:2|max:255',
+            'year' => 'required|integer|between:1950,' . now()->format('Y'),
+            'max_speed' => 'sometimes|integer|between:20,300',
+            'is_automatic' => 'required|boolean|',
+            'engine' => 'required|integer|between:750,6000',
+            'number_of_doors' => 'required|integer|between:2,5',
         ];
     }
 }
